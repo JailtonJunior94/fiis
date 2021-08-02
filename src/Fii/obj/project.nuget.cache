@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "SD4VbmYCrVDHU9L9PilK3zr03KjfzTLNdxpJcIW1eALfATX7sVF7RJxJ6aSTNeIfIuJnM3LxiVPPVcNxQCgt9Q==",
+  "success": true,
+  "projectFilePath": "c:\\Git\\fiis\\src\\Fii\\Fii.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jailt\\.nuget\\packages\\htmlagilitypack\\1.11.34\\htmlagilitypack.1.11.34.nupkg.sha512"
+  ],
+  "logs": []
+}
