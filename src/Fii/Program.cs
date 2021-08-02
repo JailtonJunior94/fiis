@@ -1,7 +1,9 @@
-﻿using System.Net;
+﻿using Fii.Models;
+using Fii.Services;
 using HtmlAgilityPack;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
+using System.Net;
 
 namespace Fii
 {
@@ -56,42 +58,54 @@ namespace Fii
                                     fii.DividendoYieldAcumulado12M = row.SelectNodes("td")[i].InnerText;
                                     break;
                                 case 9:
-                                    fii.DividendoYieldAcumuladoAno = row.SelectNodes("td")[i].InnerText;
+                                    fii.DividendoYieldMedia3M = row.SelectNodes("td")[i].InnerText;
                                     break;
                                 case 10:
-                                    fii.VariacaoPreco = row.SelectNodes("td")[i].InnerText;
+                                    fii.DividendoYieldMedia6M = row.SelectNodes("td")[i].InnerText;
                                     break;
                                 case 11:
-                                    fii.RentabilidadePeriodo = row.SelectNodes("td")[i].InnerText;
+                                    fii.DividendoYieldMedia12M = row.SelectNodes("td")[i].InnerText;
                                     break;
                                 case 12:
-                                    fii.RentabilidadeAcumulada = row.SelectNodes("td")[i].InnerText;
+                                    fii.DividendoYieldMediaAno = row.SelectNodes("td")[i].InnerText;
                                     break;
                                 case 13:
-                                    fii.PatrimonioLiquido = row.SelectNodes("td")[i].InnerText;
+                                    fii.VariacaoPreco = row.SelectNodes("td")[i].InnerText;
                                     break;
                                 case 14:
-                                    fii.VPA = row.SelectNodes("td")[i].InnerText;
+                                    fii.RentabilidadePeriodo = row.SelectNodes("td")[i].InnerText;
                                     break;
                                 case 15:
-                                    fii.PVPA = row.SelectNodes("td")[i].InnerText;
+                                    fii.RentabilidadeAcumulada = row.SelectNodes("td")[i].InnerText;
                                     break;
                                 case 16:
-                                    fii.DividendoYieldPatrimonial = row.SelectNodes("td")[i].InnerText;
+                                    fii.PatrimonioLiquido = row.SelectNodes("td")[i].InnerText;
                                     break;
                                 case 17:
-                                    fii.VariacaoPatrimonial = row.SelectNodes("td")[i].InnerText;
+                                    fii.VPA = row.SelectNodes("td")[i].InnerText;
                                     break;
                                 case 18:
-                                    fii.RentabilidadePatrimonialPeriodo = row.SelectNodes("td")[i].InnerText;
+                                    fii.PVPA = row.SelectNodes("td")[i].InnerText;
                                     break;
                                 case 19:
-                                    fii.RentabilidadePatrimonialAcumulada = row.SelectNodes("td")[i].InnerText;
+                                    fii.DividendoYieldPatrimonial = row.SelectNodes("td")[i].InnerText;
                                     break;
                                 case 20:
-                                    fii.VacanciaFisica = row.SelectNodes("td")[i].InnerText;
+                                    fii.VariacaoPatrimonial = row.SelectNodes("td")[i].InnerText;
                                     break;
                                 case 21:
+                                    fii.RentabilidadePatrimonialPeriodo = row.SelectNodes("td")[i].InnerText;
+                                    break;
+                                case 22:
+                                    fii.RentabilidadePatrimonialAcumulada = row.SelectNodes("td")[i].InnerText;
+                                    break;
+                                case 23:
+                                    fii.VariacaoFisica = row.SelectNodes("td")[i].InnerText;
+                                    break;
+                                case 24:
+                                    fii.VacanciaFisica = row.SelectNodes("td")[i].InnerText;
+                                    break;
+                                case 25:
                                     fii.QuantidadeAtivos = row.SelectNodes("td")[i].InnerText;
                                     break;
                                 default:
@@ -103,59 +117,8 @@ namespace Fii
                     }
                 }
             }
-        }
-    }
 
-    class FII
-    {
-        public string CodigoFundo { get; set; }
-        public string Setor { get; set; }
-        public string PrecoAtual { get; set; }
-        public string LiquidezDiaria { get; set; }
-        public string Dividendo { get; set; }
-        public string DividendoYield { get; set; }
-        public string DividendoYieldAcumulado3M { get; set; }
-        public string DividendoYieldAcumulado6M { get; set; }
-        public string DividendoYieldAcumulado12M { get; set; }
-        public string DividendoYieldAcumuladoAno { get; set; }
-        public string VariacaoPreco { get; set; }
-        public string RentabilidadePeriodo { get; set; }
-        public string RentabilidadeAcumulada { get; set; }
-        public string PatrimonioLiquido { get; set; }
-        public string VPA { get; set; }
-        public string PVPA { get; set; }
-        public string DividendoYieldPatrimonial { get; set; }
-        public string VariacaoPatrimonial { get; set; }
-        public string RentabilidadePatrimonialPeriodo { get; set; }
-        public string RentabilidadePatrimonialAcumulada { get; set; }
-        public string VacanciaFisica { get; set; }
-        public string QuantidadeAtivos { get; set; }
-
-        public override string ToString()
-        {
-            return $@"
-                CODIGO DO FUNDO: {CodigoFundo}
-                SETOR: {Setor}
-                PREÇO ATUAL: {PrecoAtual}
-                LIQUIDEZ DIÁRIA: {LiquidezDiaria}
-                DIVIDENDO: {Dividendo}
-                DIVIVENDO YIELD: {DividendoYield}
-                DIVIVENDO YIELD ACUMULADO 3 (MESES): {DividendoYieldAcumulado3M}
-                DIVIVENDO YIELD ACUMULADO 6 (MESES): {DividendoYieldAcumulado6M}
-                DIVIVENDO YIELD ACUMULADO 12 (MESES): {DividendoYieldAcumulado12M}
-                DIVIVENDO YIELD ACUMULADO ANO: {DividendoYieldAcumuladoAno}
-                VARIAÇÃO PREÇO: {VariacaoPreco}
-                RENTABILIDADE PERIODO: {RentabilidadePeriodo}
-                RENTABILIDADE ACUMULADA: {RentabilidadeAcumulada}
-                PATRIMONIO LIQUIDO: {PatrimonioLiquido}
-                VPA: {VPA}
-                P/VPA: {PVPA}
-                DIVIDENDO YIELD PATRIMONIAL: {DividendoYieldPatrimonial}
-                RENTABILIDADE PATRIMONIAL PERIODO: {RentabilidadePatrimonialPeriodo}
-                RENTABILIDADE PATRIMONIAL ACUMULADA: {RentabilidadePatrimonialAcumulada}
-                VACANCIA FÍSICA: {VacanciaFisica}
-                QUATIDADE ATIVOS: {QuantidadeAtivos}
-                ";
+            ExcelService.BuildExcel(list);
         }
     }
 }
